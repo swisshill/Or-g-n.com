@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Or/g/n — Daifuku Mochis</title>
+  <style>
+    :root {
+      --bg: #e5ece3;
+      --surface: #f5f8f3;
+      --surface-soft: #dce7da;
+      --text: #2f2924;
+      --muted: #6f655d;
+      --line: rgba(47, 41, 36, 0.10);
+      --accent: #b04f58;
+      --accent-deep: #893a3c;
+      --dark: #241f1b;
+      --max-width: 1180px;
+      --content-width: 760px;
+      --shadow: 0 18px 40px rgba(36, 31, 27, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand,
+    .hero h1,
+    .group-title,
+    .card-title,
+    .footer-brand,
+    .back-link,
+    .eyebrow {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      padding: 1.35rem 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background: #000;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(0,0,0,0.5)),
+        linear-gradient(to right, rgba(0,0,0,0.28), rgba(0,0,0,0.1));
+      z-index: 1;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(100%, var(--content-width));
+      color: #fff;
+      padding: 8rem 0 5rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .hero p {
+      margin: 1.25rem 0 0;
+      font-size: 1.06rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 42rem;
+    }
+
+    .content {
+      padding: 5rem 0;
+    }
+
+    .groups {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .group-title {
+      margin: 0 0 1.25rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .mochi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mochi-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .mochi-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .card-copy {
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .card-description {
+      margin: 0.55rem 0 0;
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card-allergens {
+      margin: 0.6rem 0 0;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .card-allergens strong {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .notes-panel {
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .notes-panel p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 2.2rem 0;
+      background: var(--dark);
+      color: #f5efe7;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.88rem;
+    }
+
+    .footer-note {
+      color: rgba(245,239,231,0.8);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .mochi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: 62vh;
+      }
+
+      .hero-inner {
+        padding: 6rem 0 4rem;
+      }
+
+      .content {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .mochi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Or/g/n</a>
+      <a class="back-link" href="index.html">Back to home</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-image" src="assets/images/daifuku.jpg" alt="Or/g/n daifuku mochis" />
+      <div class="container">
+        <div class="hero-inner">
+          <span class="eyebrow">Daifuku Mochis</span>
+          <h1>Or/g/n Mochis</h1>
+          <p>
+            A photographed selection of seasonal daifuku fillings, grouped by origin, season, and familiar classics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container" style="margin-bottom: 2rem;">
+        <div class="notes-panel">
+          <p>
+            Handmade in small batches. Contains dairy. Most cream-based flavours also contain gelatin. Please ask if you have allergies or dietary restrictions.
+          </p>
+        </div>
+      </div>
+
+      <div class="container groups">
+        <section>
+          <h2 class="group-title">From Bassenges / Garden</h2>
+          <div class="mochi-grid">
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Cherry.JPG" alt="Garden Cherry Ruby daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Garden Cherry Ruby</h3>
+                <p class="card-description">Cherry, ruby chocolate, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Honey.JPG" alt="Honey Cream daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Honey Cream</h3>
+                <p class="card-description">Bassenges honey, mascarpone, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Prune.JPG" alt="Garden Prune Cream daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Garden Prune Cream</h3>
+                <p class="card-description">Bassenges prune, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Pumpkin.JPG" alt="Garden Pumpkin Spice daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Garden Pumpkin Spice</h3>
+                <p class="card-description">Bassenges pumpkin, warm spices, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Quince.JPG" alt="Quince Cream daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Quince Cream</h3>
+                <p class="card-description">Bassenges quince, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/RaspberryRose.JPG" alt="Raspberry Rose daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Raspberry Rose</h3>
+                <p class="card-description">Raspberry, Bassenges damask rose, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Verveine.jpg" alt="Lemon Verveine daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Lemon Verveine</h3>
+                <p class="card-description">Bassenges lemon verbena, lemon, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="group-title">Mochi Classics</h2>
+          <div class="mochi-grid">
+            <article class="mochi-card">
+              <img src="assets/images/mochis/RedBean.JPG" alt="Red Bean Azuki daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Red Bean (Azuki)</h3>
+                <p class="card-description">Sweet azuki bean paste</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Prepared in a kitchen using milk</p>
+              </div>
+            </article>
+
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Matcha.JPG" alt="Matcha Cream daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Matcha Cream</h3>
+                <p class="card-description">Matcha, white chocolate, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="group-title">Seasonal Fruit</h2>
+          <div class="mochi-grid">
+            <article class="mochi-card">
+              <img src="assets/images/mochis/Strawberry.JPG" alt="Strawberry Cream daifuku" />
+              <div class="card-copy">
+                <h3 class="card-title">Strawberry Cream</h3>
+                <p class="card-description">Strawberry, cream</p>
+                <p class="card-allergens"><strong>Allergens:</strong> Milk</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Or/g/n</div>
+      <div class="footer-note">Daifuku Mochis · Seasonal Fillings · Small-batch</div>
+    </div>
+  </footer>
+</body>
+</html>
