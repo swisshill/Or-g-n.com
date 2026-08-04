@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Or/g/n — Miel</title>
+  <title>Or/g/n — Le miel du terroir de Bassenges</title>
   <style>
     :root {
       --bg: #e5ece3;
@@ -201,6 +201,35 @@
       padding-top: 0;
     }
 
+
+    .harvest-entry {
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(47, 41, 36, 0.14);
+    }
+
+    .harvest-entry:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .harvest-entry h3 {
+      margin: 0 0 0.65rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .statement-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+    }
+
+    .statement-list li {
+      padding: 0.35rem 0;
+      font-weight: 600;
+    }
+
     .harvest-card {
       background: var(--surface-soft);
       border: 1px solid var(--line);
@@ -252,6 +281,50 @@
       font-size: 1.02rem;
     }
 
+
+    .map-window {
+      margin: 2rem 0;
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .map-window iframe {
+      display: block;
+      width: 100%;
+      height: 430px;
+      border: 0;
+    }
+
+    .map-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 1rem;
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .map-caption a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    @media (max-width: 680px) {
+      .map-window iframe {
+        height: 340px;
+      }
+
+      .map-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
     .footer {
       padding: 2.2rem 0;
       background: var(--dark);
@@ -275,8 +348,7 @@
       color: rgba(245,239,231,0.8);
       font-size: 0.92rem;
     }
-
-    @media (max-width: 860px) {
+@media (max-width: 860px) {
       .hero {
         min-height: 62vh;
       }
@@ -306,13 +378,13 @@
 
   <main>
     <section class="hero">
-      <img class="hero-image" src="assets/images/honey.jpg" alt="Miel Or/g/n" />
+      <img class="hero-image" src="assets/images/honey.jpg" alt="Or/g/n honey" />
       <div class="container">
         <div class="hero-inner">
-          <span class="eyebrow">Miel</span>
-          <h1>Miel Or/g/n</h1>
+          <span class="eyebrow">Bassenges · Ecublens, Vaud, Suisse</span>
+          <h1>Le miel du terroir de Bassenges</h1>
           <p>
-            Une offre de miel en petite série, façonnée par la saison, les fleurs et le travail discret de la ruche.
+            Du miel suisse issu de nos propres colonies à la Ferme de Bassenges, récolté en petites séries saisonnières et façonné par les fleurs, les arbres, les cultures, la météo et les rythmes de ce paysage.
           </p>
         </div>
       </div>
@@ -321,37 +393,122 @@
     <section class="content">
       <div class="container content-grid">
         <div class="panel">
-          <h2>À propos du miel</h2>
-          <p>
-            Chaque pot reflète un moment particulier de la saison : une rencontre brève entre nectar, météo et floraison, rassemblée par le travail des abeilles et manipulée avec soin.
-          </p>
-          <p>
-            Le miel est extrait à la main et conservé cru, afin que sa texture naturelle, son arôme et son caractère restent aussi proches que possible de la récolte elle-même.
-          </p>
-           <p>
-            Le miel cru ne convient pas aux nourrissons de moins de 12 mois.
-          </p>
-        </div>
-
-        <div class="harvest-card">
-          <h2>Étiquettes de récolte 2025</h2>
-          <p>
-            Les étiquettes suivantes ont été utilisées pour les récoltes 2025.
-          </p>
-          <ul class="lot-list">
-            <li>
-              <span class="lot-code">2025 - 01</span>
-              <span class="lot-name">Récolte de printemps 2025</span>
-            </li>
-            <li>
-              <span class="lot-code">2025 - 02</span>
-              <span class="lot-name">Récolte de printemps 2025</span>
-            </li>
-            <li>
-              <span class="lot-code">2025 - 03</span>
-              <span class="lot-name">Récolte d'été 2025</span>
-            </li>
+          <h2>Un miel ancré dans un lieu</h2>
+          <p>Notre rucher est installé à la <strong>Ferme de Bassenges</strong>, à Ecublens, dans le canton de Vaud. Chaque pot provient exclusivement de nos colonies et est extrait et préparé par l’apiculteur en petites séries saisonnières.</p>
+          <p>Plutôt que de rechercher un miel identique d’une année à l’autre, nous préservons la personnalité de chaque récolte. Sa couleur, son parfum, sa saveur, sa texture et sa cristallisation varient naturellement au fil des saisons.</p>
+          <ul class="statement-list">
+            <li>Notre miel est brut.</li>
+            <li>Nos ruches sont sans plastique.</li>
+            <li>Notre miel n’est pas certifié biologique.</li>
           </ul>
+        </div>
+        <div class="harvest-card">
+          <h2>En bref</h2>
+          <ul class="lot-list">
+            <li><span class="lot-code">Origine</span><span class="lot-name">Ferme de Bassenges · Ecublens, Vaud</span></li>
+            <li><span class="lot-code">Production</span><span class="lot-name">Petites séries saisonnières issues de nos propres colonies</span></li>
+            <li><span class="lot-code">Traçabilité</span><span class="lot-name">Chaque pot porte l’année et le numéro de sa récolte</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container">
+        <div class="panel">
+          <span class="eyebrow">Le paysage autour des ruches</span>
+          <h2>Le terroir de Bassenges</h2>
+          <p>Le caractère de chaque récolte commence bien avant que le nectar n’arrive dans la ruche.</p>
+          <p>Autour de la <strong>Ferme de Bassenges</strong>, exploitation agricole certifiée biologique, nos abeilles butinent une mosaïque de vergers, de cultures maraîchères, de petits fruits, de prairies, de haies, de jardins et de milieux naturels. Au fil des floraisons, du début du printemps jusqu’à l’automne, chaque récolte devient une expression unique du terroir de Bassenges.</p>
+
+          <figure class="map-window">
+            <iframe
+              title="Carte de la Ferme de Bassenges à Ecublens"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=6.5585%2C46.5215%2C6.5673%2C46.5265&amp;layer=mapnik&amp;marker=46.52398%2C6.56291"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <figcaption class="map-caption">
+              <span>Ferme de Bassenges · Ecublens, Vaud</span>
+              <a href="https://www.openstreetmap.org/?mlat=46.52398&amp;mlon=6.56291#map=17/46.52398/6.56291" target="_blank" rel="noopener">Ouvrir la carte</a>
+            </figcaption>
+          </figure>
+
+          <ul class="notes">
+            <li><strong>Arbres et vergers :</strong> tilleuls, noyers, noisetiers, cerisiers, pruniers, pommiers, poiriers, érables, marronniers, saules et jeunes arbres fruitiers récemment plantés.</li>
+            <li><strong>Petits fruits :</strong> framboisiers, mûres, cassissiers, groseilliers et mûriers.</li>
+            <li><strong>Cultures de la ferme :</strong> fleurs de courgettes, courges, concombres, tomates, plantes aromatiques, légumes de saison et fleurs comestibles.</li>
+            <li><strong>Prairies et fleurs basses :</strong> pissenlits, trèfle blanc, fleurs sauvages et grande diversité de plantes cultivées ou spontanées.</li>
+            <li><strong>Haies et lisières :</strong> ronces, sureaux, arbustes à fleurs et lierre, une ressource particulièrement importante en fin de saison.</li>
+            <li><strong>Au-delà de la ferme :</strong> les jardins voisins, les plantations ornementales, les magnolias, les cerisiers à fleurs, d’autres arbres fleuris et l’ensemble du paysage d’Ecublens contribuent également aux ressources des abeilles.</li>
+          </ul>
+          <p style="margin-top: 1.5rem;">L’équilibre entre les différentes floraisons évolue continuellement au cours de la saison. La pluie, la température, l’ensoleillement et la succession des floraisons influencent les ressources que les abeilles peuvent récolter.</p>
+          <p>Aucune récolte ne ressemble exactement à une autre. Leurs différences sont l’expression naturelle du terroir de Bassenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container content-grid">
+        <div class="panel">
+          <h2>De la ruche au pot</h2>
+          <p>Notre démarche est volontairement simple.</p>
+          <ul class="notes">
+            <li>Les abeilles récoltent le nectar dans le paysage environnant.</li>
+            <li>Le miel est récolté uniquement lorsque les cadres sont prêts.</li>
+            <li>Les cadres sont extraits en petites séries.</li>
+            <li>Le miel décante naturellement avant la mise en pot.</li>
+            <li>Chaque pot contient <strong>100 % de miel suisse</strong>.</li>
+          </ul>
+        </div>
+        <div class="harvest-card">
+          <h2>Bon à savoir</h2>
+          <p>La cristallisation est une propriété naturelle du miel et évolue différemment d’une récolte à l’autre.</p>
+          <p>Chaque récolte possède naturellement sa propre couleur, son parfum et sa saveur.</p>
+          <p>Le miel brut ne convient pas aux nourrissons de moins de douze mois.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container">
+        <div class="panel">
+          <span class="eyebrow">Ferme de Bassenges · Récoltes saisonnières · Origine traçable</span>
+          <h2>Traçabilité des récoltes</h2>
+          <p>Chaque pot porte son année et son numéro de récolte. Ensemble, ils permettent d’identifier une saison particulière à Bassenges et d’en retracer l’origine.</p>
+          <p>Plutôt que de mélanger plusieurs années ou plusieurs récoltes, nous les conservons séparément. Chaque récolte reflète la combinaison unique des conditions météorologiques, des floraisons et de l’activité des abeilles.</p>
+
+          <div class="harvest-entry">
+            <h3>Été 2026 · 02</h3>
+            <p>L’été 2026 a été exceptionnellement chaud et sec. Les périodes de fortes chaleurs ont alterné avec des épisodes orageux qui ont momentanément relancé les miellées autour de Bassenges avant le retour de conditions plus sèches.</p>
+            <p>Autour de la ferme, les abeilles sont progressivement passées des tilleuls aux ronces, au trèfle blanc, aux cultures maraîchères en fleurs, aux jardins et à la grande diversité florale de l’été.</p>
+            <p>Cette récolte reflète la résilience et la richesse du terroir de Bassenges au cours d’un été exceptionnel.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Printemps 2026 · 01</h3>
+            <p>Le printemps est arrivé particulièrement tôt. Un temps chaud et sec a accéléré la floraison des saules, cerisiers, pruniers, pommiers et poiriers, suivis des petits fruits, des pissenlits et des prairies fleuries.</p>
+            <p>Récolté avant la floraison estivale des tilleuls, ce miel préserve la fraîcheur florale d’un printemps remarquablement précoce.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Été 2025 · 03</h3>
+            <p>Au cœur de l’été, le paysage avait atteint toute sa diversité. Après la floraison des tilleuls, les abeilles ont butiné les ronces, le trèfle blanc, les cultures maraîchères en fleurs, les jardins et les nombreuses fleurs sauvages qui entourent la Ferme de Bassenges.</p>
+            <p>Cette récolte reflète la chaleur et la richesse d’un été suisse remarquable.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Printemps 2025 · 02</h3>
+            <p>Un mois de juin exceptionnellement chaud a accéléré la transition vers l’été. Les prairies fleuries, le trèfle blanc et les petits fruits ont été rejoints par les premières floraisons de tilleul, offrant une miellée plus riche et plus variée qu’au début de la saison.</p>
+            <p>Cette récolte capture la transition du paysage entre le printemps et l’été.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Printemps 2025 · 01</h3>
+            <p>La première récolte de la saison témoigne du réveil du paysage de Bassenges. Les abeilles ont butiné les saules, les cerisiers, les pruniers, les pommiers, les poiriers, les petits fruits, les pissenlits et la riche diversité des prairies printanières.</p>
+            <p>Récolté avant la floraison des tilleuls, ce miel exprime la fraîcheur et la délicatesse de la fin du printemps.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -360,7 +517,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">Or/g/n</div>
-      <div class="footer-note">Miel · Petite série · Cru · Extrait à la main</div>
+      <div class="footer-note">Or/g/n · Par l’Association Instillations</div>
     </div>
   </footer>
 </body>
