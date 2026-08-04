@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Or/g/n — Honey</title>
+  <title>Or/g/n — Honey from the Bassenges Terroir</title>
   <style>
     :root {
       --bg: #e5ece3;
@@ -201,6 +201,35 @@
       padding-top: 0;
     }
 
+
+    .harvest-entry {
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(47, 41, 36, 0.14);
+    }
+
+    .harvest-entry:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .harvest-entry h3 {
+      margin: 0 0 0.65rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .statement-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+    }
+
+    .statement-list li {
+      padding: 0.35rem 0;
+      font-weight: 600;
+    }
+
     .harvest-card {
       background: var(--surface-soft);
       border: 1px solid var(--line);
@@ -276,6 +305,67 @@
       font-size: 0.92rem;
     }
 
+
+    .edit-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 248, 243, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .edit-toolbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+    }
+
+    .edit-status {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .edit-actions {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .edit-button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.65rem 0.9rem;
+      font: 600 0.82rem/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .edit-button:hover,
+    .edit-button:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .edit-button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    [contenteditable="true"] {
+      outline: 2px dashed rgba(176, 79, 88, 0.35);
+      outline-offset: 5px;
+      background: rgba(255,255,255,0.35);
+    }
+
     @media (max-width: 860px) {
       .hero {
         min-height: 62vh;
@@ -304,15 +394,27 @@
     </div>
   </header>
 
+  <div class="edit-toolbar">
+    <div class="container edit-toolbar-inner">
+      <div class="edit-status" id="editStatus">View mode</div>
+      <div class="edit-actions">
+        <button class="edit-button primary" id="toggleEdit" type="button">Edit text</button>
+        <button class="edit-button" id="saveLocal" type="button">Save in browser</button>
+        <button class="edit-button" id="downloadHtml" type="button">Download HTML</button>
+        <button class="edit-button" id="resetEdits" type="button">Reset edits</button>
+      </div>
+    </div>
+  </div>
+
   <main>
     <section class="hero">
       <img class="hero-image" src="assets/images/honey.jpg" alt="Or/g/n honey" />
       <div class="container">
-        <div class="hero-inner">
-          <span class="eyebrow">Honey</span>
-          <h1>Or/g/n Honey</h1>
+        <div class="hero-inner editable-zone">
+          <span class="eyebrow">Bassenges · Ecublens, Vaud, Switzerland</span>
+          <h1>Honey from the Bassenges Terroir</h1>
           <p>
-            A small-batch honey offering, shaped by season, flowers, and the quiet work of the hive.
+            Swiss honey from our own colonies at Ferme de Bassenges, harvested in small seasonal batches and shaped by the flowers, trees, crops, weather and rhythms of this landscape.
           </p>
         </div>
       </div>
@@ -320,38 +422,113 @@
 
     <section class="content">
       <div class="container content-grid">
-        <div class="panel">
-          <h2>About the honey</h2>
-          <p>
-            Each jar reflects a particular moment in the season: a brief gathering of nectar, weather, and bloom, brought together by the work of the bees and handled with care.
-          </p>
-          <p>
-            The honey is extracted by hand and kept raw, so that its natural texture, aroma, and character remain as close as possible to the harvest itself.
-          </p>
-           <p>
-            Raw honey is not suitable for infants under 12 months.
-          </p>
-        </div>
-
-        <div class="harvest-card">
-          <h2>2025 harvest labels</h2>
-          <p>
-            The following labels were used for the 2025 harvests.
-          </p>
-          <ul class="lot-list">
-            <li>
-              <span class="lot-code">2025 - 01</span>
-              <span class="lot-name">Spring Harvest 2025</span>
-            </li>
-            <li>
-              <span class="lot-code">2025 - 02</span>
-              <span class="lot-name">Spring Harvest 2025</span>
-            </li>
-            <li>
-              <span class="lot-code">2025 - 03</span>
-              <span class="lot-name">Spring Harvest 2025</span>
-            </li>
+        <div class="panel editable-zone">
+          <h2>A honey that belongs to a place</h2>
+          <p>Our apiary is located at <strong>Ferme de Bassenges</strong> in Ecublens, canton of Vaud, Switzerland. Every jar comes from our own colonies and is extracted and prepared by the beekeeper in small seasonal batches.</p>
+          <p>Rather than aiming for a honey that tastes identical every year, we preserve the individuality of each harvest. Colour, aroma, flavour, texture and crystallisation naturally vary with the seasons.</p>
+          <ul class="statement-list">
+            <li>Our honey is raw.</li>
+            <li>Our hives are plastic-free.</li>
+            <li>Our honey is not certified organic.</li>
           </ul>
+        </div>
+        <div class="harvest-card editable-zone">
+          <h2>At a glance</h2>
+          <ul class="lot-list">
+            <li><span class="lot-code">Origin</span><span class="lot-name">Ferme de Bassenges · Ecublens, Vaud</span></li>
+            <li><span class="lot-code">Production</span><span class="lot-name">Small seasonal batches from our own colonies</span></li>
+            <li><span class="lot-code">Traceability</span><span class="lot-name">Each jar carries its harvest year and number</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container">
+        <div class="panel editable-zone">
+          <span class="eyebrow">The landscape around the hives</span>
+          <h2>The Bassenges terroir</h2>
+          <p>The character of each harvest begins long before nectar reaches the hive.</p>
+          <p>Around <strong>Ferme de Bassenges</strong>, an organically managed farm, our bees forage across a mosaic of orchards, vegetable fields, berry plantings, meadows, hedgerows, gardens and wild landscapes. As flowering progresses from early spring into autumn, every harvest becomes a unique expression of the Bassenges terroir.</p>
+          <ul class="notes">
+            <li><strong>Trees and orchards:</strong> linden, walnut, hazelnut, cherry, plum, apple, pear, maple, horse chestnut, willow and recently planted fruit trees.</li>
+            <li><strong>Berry plantings:</strong> raspberries, blackberries, blackcurrants, redcurrants and mulberries.</li>
+            <li><strong>Farm crops:</strong> flowering courgettes, pumpkins, cucumbers, tomatoes, aromatic herbs, seasonal vegetables and edible flowers.</li>
+            <li><strong>Meadows and low-growing flowers:</strong> dandelions, white clover, wildflowers and a rich diversity of cultivated and spontaneous flowering plants.</li>
+            <li><strong>Hedgerows and wild edges:</strong> brambles, elder, flowering shrubs and ivy, an especially important late-season forage source.</li>
+            <li><strong>Beyond the farm:</strong> neighbouring gardens, ornamental plantings, magnolias, flowering cherries, other flowering trees and the wider landscape of Ecublens also contribute to the bees' forage.</li>
+          </ul>
+          <p style="margin-top: 1.5rem;">The balance between flowering species changes continuously throughout the season. Rainfall, temperature, sunshine and the succession of blooms all influence what the bees can gather.</p>
+          <p>No two harvests are exactly alike. Their differences are the natural expression of the Bassenges terroir.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container content-grid">
+        <div class="panel editable-zone">
+          <h2>From hive to jar</h2>
+          <p>Our process is intentionally simple.</p>
+          <ul class="notes">
+            <li>Bees gather nectar from the surrounding landscape.</li>
+            <li>Honey is harvested only when the frames are ready.</li>
+            <li>Frames are extracted in small batches.</li>
+            <li>Honey is allowed to settle naturally before jarring.</li>
+            <li>Every jar contains <strong>100% Swiss honey</strong>.</li>
+          </ul>
+          <p style="margin-top: 1.5rem;"><strong>Nothing is added.</strong></p>
+          <p><strong>Nothing is removed.</strong></p>
+          <p>Natural crystallisation is expected and welcomed as part of the life of honey.</p>
+        </div>
+        <div class="harvest-card editable-zone">
+          <h2>Good to know</h2>
+          <p>Natural crystallisation is a normal characteristic of honey and varies from one harvest to another.</p>
+          <p>Every harvest naturally differs in colour, aroma and flavour.</p>
+          <p>Raw honey is not suitable for infants under 12 months.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="padding-top: 0;">
+      <div class="container">
+        <div class="panel editable-zone">
+          <span class="eyebrow">Ferme de Bassenges · Seasonal harvests · Traceable origin</span>
+          <h2>Harvest traceability</h2>
+          <p>Each jar carries its harvest year and harvest number. Together they identify a particular season at Ferme de Bassenges and link every jar to its place of origin.</p>
+          <p>Rather than blending different years or harvests together, we preserve each one separately. Every harvest reflects the unique combination of weather, flowering and bee activity that shaped it.</p>
+
+          <div class="harvest-entry">
+            <h3>Summer 2026 · 02</h3>
+            <p>Summer 2026 was exceptionally warm and dry. Prolonged periods of heat alternated with thunderstorms that briefly renewed nectar flows around Bassenges before the return of dry conditions.</p>
+            <p>Around the farm, the bees followed the progression from linden into brambles, white clover, flowering vegetable crops, gardens and the rich diversity of midsummer flowers.</p>
+            <p>This harvest reflects the resilience and abundance of the Bassenges terroir during an extraordinary summer.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Spring 2026 · 01</h3>
+            <p>Spring arrived unusually early. Warm, dry weather accelerated the flowering of willow, cherry, plum, apple and pear trees, followed by berry blossoms, dandelions and spring meadows.</p>
+            <p>Collected before the summer linden bloom, this harvest preserves the bright floral character of an exceptionally early spring.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Summer 2025 · 03</h3>
+            <p>By midsummer, the landscape had reached its full diversity. Following the linden bloom, bees foraged among brambles, white clover, flowering vegetable crops, gardens and the rich variety of wildflowers surrounding Ferme de Bassenges.</p>
+            <p>This harvest reflects the warmth and richness of a remarkable Swiss summer.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Spring 2025 · 02</h3>
+            <p>An exceptionally warm June brought an early transition into summer. Flowering meadows, white clover and berry plants were joined by the first linden blossoms, creating a richer and more varied nectar flow than earlier in the season.</p>
+            <p>This harvest captures the changing landscape as spring gives way to summer.</p>
+          </div>
+
+          <div class="harvest-entry">
+            <h3>Spring 2025 · 01</h3>
+            <p>The first harvest of the season reflects the awakening of the Bassenges landscape. Bees foraged among flowering willow, cherry, plum, apple and pear trees, berry blossoms, dandelions and the rich diversity of spring meadows.</p>
+            <p>Collected before the linden bloom, this honey captures the freshness and delicacy of late spring.</p>
+          </div>
+
+          <p style="margin-top: 1.5rem;"><strong>Every harvest tells the story of a particular season at Ferme de Bassenges.</strong></p>
         </div>
       </div>
     </section>
@@ -360,8 +537,92 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">Or/g/n</div>
-      <div class="footer-note">Honey · Small-batch · Raw · Hand extracted</div>
+      <div class="footer-note">Or/g/n · By the Instillations Association</div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const zones = [...document.querySelectorAll('.editable-zone')];
+      const toggle = document.getElementById('toggleEdit');
+      const status = document.getElementById('editStatus');
+      const save = document.getElementById('saveLocal');
+      const download = document.getElementById('downloadHtml');
+      const reset = document.getElementById('resetEdits');
+      const storageKey = 'orgn-honey-page-edits-v1';
+      let editing = false;
+
+      const setEditing = (value) => {
+        editing = value;
+        zones.forEach(zone => zone.contentEditable = value ? 'true' : 'false');
+        toggle.textContent = value ? 'Finish editing' : 'Edit text';
+        status.textContent = value
+          ? 'Editing mode — click directly into the text'
+          : 'View mode';
+      };
+
+      const saveEdits = () => {
+        const payload = zones.map(zone => zone.innerHTML);
+        localStorage.setItem(storageKey, JSON.stringify(payload));
+        status.textContent = 'Saved in this browser';
+      };
+
+      const restoreEdits = () => {
+        const saved = localStorage.getItem(storageKey);
+        if (!saved) return;
+        try {
+          const payload = JSON.parse(saved);
+          zones.forEach((zone, index) => {
+            if (payload[index] !== undefined) zone.innerHTML = payload[index];
+          });
+          status.textContent = 'Saved edits restored';
+        } catch (error) {
+          console.warn('Could not restore saved edits.', error);
+        }
+      };
+
+      const downloadCurrentHtml = () => {
+        setEditing(false);
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+
+        const toolbar = clone.querySelector('.edit-toolbar');
+        if (toolbar) toolbar.remove();
+
+        const script = clone.querySelector('script');
+        if (script) script.remove();
+
+        const cssText = clone.querySelector('style');
+        if (cssText) {
+          cssText.textContent = cssText.textContent
+            .replace(/\.edit-toolbar[\s\S]*?\[contenteditable="true"\][\s\S]*?\}\s*/m, '');
+        }
+
+        const output = '<!DOCTYPE html>\n' + clone.outerHTML;
+        const blob = new Blob([output], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'honey_bassenges_terroir_edited.html';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        status.textContent = 'Downloaded edited HTML';
+      };
+
+      toggle.addEventListener('click', () => setEditing(!editing));
+      save.addEventListener('click', saveEdits);
+      download.addEventListener('click', downloadCurrentHtml);
+      reset.addEventListener('click', () => {
+        localStorage.removeItem(storageKey);
+        window.location.reload();
+      });
+
+      restoreEdits();
+      setEditing(false);
+    })();
+  </script>
+
 </body>
 </html>
