@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Or/g/n — Honey from the Bassenges Terroir</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Or/g/n — Honey from the Bassenges Terroir</title>
+<style>
     :root {
       --bg: #e5ece3;
       --surface: #f5f8f3;
@@ -281,6 +282,12 @@
       font-size: 1.02rem;
     }
 
+
+    .map-window{margin:2rem 0;border:1px solid var(--line);background:var(--surface-soft);box-shadow:var(--shadow);overflow:hidden}
+    .map-window iframe{display:block;width:100%;height:430px;border:0}
+    .map-caption{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1rem;font-size:.88rem;color:var(--muted)}
+    .map-caption a{color:var(--accent-deep);text-decoration:underline}
+
     .footer {
       padding: 2.2rem 0;
       background: var(--dark);
@@ -384,164 +391,158 @@
         gap: 2rem;
       }
     }
-  </style>
+  
+.frame-photo{
+  margin:2rem 0;
+  border:1px solid var(--line);
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.frame-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.frame-photo figcaption{
+  padding:.9rem 1rem;
+  font-size:.9rem;
+  color:var(--muted);
+  font-style:italic;
+}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">Or/g/n</a>
-      <a class="back-link" href="index.html">Back to home</a>
-    </div>
-  </header>
-
-  <div class="edit-toolbar">
-    <div class="container edit-toolbar-inner">
-      <div class="edit-status" id="editStatus">View mode</div>
-      <div class="edit-actions">
-        <button class="edit-button primary" id="toggleEdit" type="button">Edit text</button>
-        <button class="edit-button" id="saveLocal" type="button">Save in browser</button>
-        <button class="edit-button" id="downloadHtml" type="button">Download HTML</button>
-        <button class="edit-button" id="resetEdits" type="button">Reset edits</button>
-      </div>
-    </div>
-  </div>
-
-  <main>
-    <section class="hero">
-      <img class="hero-image" src="assets/images/honey.jpg" alt="Or/g/n honey" />
-      <div class="container">
-        <div class="hero-inner editable-zone">
-          <span class="eyebrow">Bassenges · Ecublens, Vaud, Switzerland</span>
-          <h1>Honey from the Bassenges Terroir</h1>
-          <p>
+<header class="site-header">
+<div class="container header-inner">
+<a class="brand" href="index.html">Or/g/n</a>
+<a class="back-link" href="index.html">Back to home</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<img alt="Or/g/n honey" class="hero-image" src="assets/images/honey.jpg"/>
+<div class="container">
+<div class="hero-inner editable-zone">
+<span class="eyebrow">Bassenges · Ecublens, Vaud, Switzerland</span>
+<h1>Honey from the Bassenges Terroir</h1>
+<p>
             Swiss honey from our own colonies at Ferme de Bassenges, harvested in small seasonal batches and shaped by the flowers, trees, crops, weather and rhythms of this landscape.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="container content-grid">
-        <div class="panel editable-zone">
-          <h2>A honey that belongs to a place</h2>
-          <p>Our apiary is located at <strong>Ferme de Bassenges</strong> in Ecublens, canton of Vaud, Switzerland. Every jar comes from our own colonies and is extracted and prepared by the beekeeper in small seasonal batches.</p>
-          <p>Rather than aiming for a honey that tastes identical every year, we preserve the individuality of each harvest. Colour, aroma, flavour, texture and crystallisation naturally vary with the seasons.</p>
-          <ul class="statement-list">
-            <li>Our honey is raw.</li>
-            <li>Our hives are plastic-free.</li>
-            <li>Our honey is not certified organic.</li>
-          </ul>
-        </div>
-        <div class="harvest-card editable-zone">
-          <h2>At a glance</h2>
-          <ul class="lot-list">
-            <li><span class="lot-code">Origin</span><span class="lot-name">Ferme de Bassenges · Ecublens, Vaud</span></li>
-            <li><span class="lot-code">Production</span><span class="lot-name">Small seasonal batches from our own colonies</span></li>
-            <li><span class="lot-code">Traceability</span><span class="lot-name">Each jar carries its harvest year and number</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" style="padding-top: 0;">
-      <div class="container">
-        <div class="panel editable-zone">
-          <span class="eyebrow">The landscape around the hives</span>
-          <h2>The Bassenges terroir</h2>
-          <p>The character of each harvest begins long before nectar reaches the hive.</p>
-          <p>Around <strong>Ferme de Bassenges</strong>, an organically managed farm, our bees forage across a mosaic of orchards, vegetable fields, berry plantings, meadows, hedgerows, gardens and wild landscapes. As flowering progresses from early spring into autumn, every harvest becomes a unique expression of the Bassenges terroir.</p>
-          <ul class="notes">
-            <li><strong>Trees and orchards:</strong> linden, walnut, hazelnut, cherry, plum, apple, pear, maple, horse chestnut, willow and recently planted fruit trees.</li>
-            <li><strong>Berry plantings:</strong> raspberries, blackberries, blackcurrants, redcurrants and mulberries.</li>
-            <li><strong>Farm crops:</strong> flowering courgettes, pumpkins, cucumbers, tomatoes, aromatic herbs, seasonal vegetables and edible flowers.</li>
-            <li><strong>Meadows and low-growing flowers:</strong> dandelions, white clover, wildflowers and a rich diversity of cultivated and spontaneous flowering plants.</li>
-            <li><strong>Hedgerows and wild edges:</strong> brambles, elder, flowering shrubs and ivy, an especially important late-season forage source.</li>
-            <li><strong>Beyond the farm:</strong> neighbouring gardens, ornamental plantings, magnolias, flowering cherries, other flowering trees and the wider landscape of Ecublens also contribute to the bees' forage.</li>
-          </ul>
-          <p style="margin-top: 1.5rem;">The balance between flowering species changes continuously throughout the season. Rainfall, temperature, sunshine and the succession of blooms all influence what the bees can gather.</p>
-          <p>No two harvests are exactly alike. Their differences are the natural expression of the Bassenges terroir.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" style="padding-top: 0;">
-      <div class="container content-grid">
-        <div class="panel editable-zone">
-          <h2>From hive to jar</h2>
-          <p>Our process is intentionally simple.</p>
-          <ul class="notes">
-            <li>Bees gather nectar from the surrounding landscape.</li>
-            <li>Honey is harvested only when the frames are ready.</li>
-            <li>Frames are extracted in small batches.</li>
-            <li>Honey is allowed to settle naturally before jarring.</li>
-            <li>Every jar contains <strong>100% Swiss honey</strong>.</li>
-          </ul>
-          <p style="margin-top: 1.5rem;"><strong>Nothing is added.</strong></p>
-          <p><strong>Nothing is removed.</strong></p>
-          <p>Natural crystallisation is expected and welcomed as part of the life of honey.</p>
-        </div>
-        <div class="harvest-card editable-zone">
-          <h2>Good to know</h2>
-          <p>Natural crystallisation is a normal characteristic of honey and varies from one harvest to another.</p>
-          <p>Every harvest naturally differs in colour, aroma and flavour.</p>
-          <p>Raw honey is not suitable for infants under 12 months.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" style="padding-top: 0;">
-      <div class="container">
-        <div class="panel editable-zone">
-          <span class="eyebrow">Ferme de Bassenges · Seasonal harvests · Traceable origin</span>
-          <h2>Harvest traceability</h2>
-          <p>Each jar carries its harvest year and harvest number. Together they identify a particular season at Ferme de Bassenges and link every jar to its place of origin.</p>
-          <p>Rather than blending different years or harvests together, we preserve each one separately. Every harvest reflects the unique combination of weather, flowering and bee activity that shaped it.</p>
-
-          <div class="harvest-entry">
-            <h3>Summer 2026 · 02</h3>
-            <p>Summer 2026 was exceptionally warm and dry. Prolonged periods of heat alternated with thunderstorms that briefly renewed nectar flows around Bassenges before the return of dry conditions.</p>
-            <p>Around the farm, the bees followed the progression from linden into brambles, white clover, flowering vegetable crops, gardens and the rich diversity of midsummer flowers.</p>
-            <p>This harvest reflects the resilience and abundance of the Bassenges terroir during an extraordinary summer.</p>
-          </div>
-
-          <div class="harvest-entry">
-            <h3>Spring 2026 · 01</h3>
-            <p>Spring arrived unusually early. Warm, dry weather accelerated the flowering of willow, cherry, plum, apple and pear trees, followed by berry blossoms, dandelions and spring meadows.</p>
-            <p>Collected before the summer linden bloom, this harvest preserves the bright floral character of an exceptionally early spring.</p>
-          </div>
-
-          <div class="harvest-entry">
-            <h3>Summer 2025 · 03</h3>
-            <p>By midsummer, the landscape had reached its full diversity. Following the linden bloom, bees foraged among brambles, white clover, flowering vegetable crops, gardens and the rich variety of wildflowers surrounding Ferme de Bassenges.</p>
-            <p>This harvest reflects the warmth and richness of a remarkable Swiss summer.</p>
-          </div>
-
-          <div class="harvest-entry">
-            <h3>Spring 2025 · 02</h3>
-            <p>An exceptionally warm June brought an early transition into summer. Flowering meadows, white clover and berry plants were joined by the first linden blossoms, creating a richer and more varied nectar flow than earlier in the season.</p>
-            <p>This harvest captures the changing landscape as spring gives way to summer.</p>
-          </div>
-
-          <div class="harvest-entry">
-            <h3>Spring 2025 · 01</h3>
-            <p>The first harvest of the season reflects the awakening of the Bassenges landscape. Bees foraged among flowering willow, cherry, plum, apple and pear trees, berry blossoms, dandelions and the rich diversity of spring meadows.</p>
-            <p>Collected before the linden bloom, this honey captures the freshness and delicacy of late spring.</p>
-          </div>
-
-          <p style="margin-top: 1.5rem;"><strong>Every harvest tells the story of a particular season at Ferme de Bassenges.</strong></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">Or/g/n</div>
-      <div class="footer-note">Or/g/n · By the Instillations Association</div>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</div>
+</section>
+<section class="content">
+<div class="container content-grid">
+<div class="panel editable-zone">
+<h2>A honey that belongs to a place</h2>
+<p>Our apiary is located at <strong>Ferme de Bassenges</strong> in Ecublens, canton of Vaud, Switzerland. Every jar comes from our own colonies and is extracted and prepared by the beekeeper in small seasonal batches.</p>
+<p>Rather than aiming for a honey that tastes identical every year, we preserve the individuality of each harvest. Colour, aroma, flavour, texture and crystallisation naturally vary with the seasons.</p>
+<ul class="statement-list">
+<li>Our honey is raw.</li>
+<li>Our hives are plastic-free.</li>
+<li>Our honey is not certified organic.</li>
+</ul>
+<figure class="frame-photo"><img alt="Fresh honey frame" src="assets/images/honey.jpg"/></figure></div>
+<div class="harvest-card editable-zone">
+<h2>At a glance</h2>
+<ul class="lot-list">
+<li><span class="lot-code">Origin</span><span class="lot-name">Ferme de Bassenges · Ecublens, Vaud</span></li>
+<li><span class="lot-code">Production</span><span class="lot-name">Small seasonal batches from our own colonies</span></li>
+<li><span class="lot-code">Traceability</span><span class="lot-name">Each jar carries its harvest year and number</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="content" style="padding-top: 0;">
+<div class="container">
+<div class="panel editable-zone">
+<span class="eyebrow">The landscape around the hives</span>
+<h2>The Bassenges terroir</h2>
+<p>The character of each harvest begins long before nectar reaches the hive.</p>
+<p>Around <strong>Ferme de Bassenges</strong>, an organically managed farm, our bees forage across a mosaic of orchards, vegetable fields, berry plantings, meadows, hedgerows, gardens and wild landscapes. As flowering progresses from early spring into autumn, every harvest becomes a unique expression of the Bassenges terroir.</p>
+<figure class="map-window">
+<iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=6.5585%2C46.5215%2C6.5673%2C46.5265&amp;layer=mapnik&amp;marker=46.52398%2C6.56291" title="Map of Ferme de Bassenges"></iframe>
+<figcaption class="map-caption"><span>Ferme de Bassenges · Ecublens, Vaud</span><a href="https://www.openstreetmap.org/?mlat=46.52398&amp;mlon=6.56291#map=17/46.52398/6.56291" target="_blank">Open map</a></figcaption>
+</figure>
+<ul class="notes">
+<li><strong>Trees and orchards:</strong> linden, walnut, hazelnut, cherry, plum, apple, pear, maple, horse chestnut, willow and recently planted fruit trees.</li>
+<li><strong>Berry plantings:</strong> raspberries, blackberries, blackcurrants, redcurrants and mulberries.</li>
+<li><strong>Farm crops:</strong> flowering courgettes, pumpkins, cucumbers, tomatoes, aromatic herbs, seasonal vegetables and edible flowers.</li>
+<li><strong>Meadows and low-growing flowers:</strong> dandelions, white clover, wildflowers and a rich diversity of cultivated and spontaneous flowering plants.</li>
+<li><strong>Hedgerows and wild edges:</strong> brambles, elder, flowering shrubs and ivy, an especially important late-season forage source.</li>
+<li><strong>Beyond the farm:</strong> neighbouring gardens, ornamental plantings, magnolias, flowering cherries, other flowering trees and the wider landscape of Ecublens also contribute to the bees' forage.</li>
+</ul>
+<p style="margin-top: 1.5rem;">The balance between flowering species changes continuously throughout the season. Rainfall, temperature, sunshine and the succession of blooms all influence what the bees can gather.</p>
+<p>No two harvests are exactly alike. Their differences are the natural expression of the Bassenges terroir.</p>
+</div>
+</div>
+</section>
+<section class="content" style="padding-top: 0;">
+<div class="container content-grid">
+<div class="panel editable-zone">
+<h2>From hive to jar</h2>
+<p>Our process is intentionally simple.</p>
+<ul class="notes">
+<li>Bees gather nectar from the surrounding landscape.</li>
+<li>Honey is harvested only when the frames are ready.</li>
+<li>Frames are extracted in small batches.</li>
+<li>Honey is allowed to settle naturally before jarring.</li>
+<li>Every jar contains <strong>100% Swiss honey</strong>.</li>
+</ul>
+</div>
+<div class="harvest-card editable-zone">
+<h2>Good to know</h2>
+<p>Natural crystallisation is a normal characteristic of honey and varies from one harvest to another.</p>
+<p>Every harvest naturally differs in colour, aroma and flavour.</p>
+<p>Raw honey is not suitable for infants under 12 months.</p>
+</div>
+</div>
+</section>
+<section class="content" style="padding-top: 0;">
+<div class="container">
+<div class="panel editable-zone">
+<span class="eyebrow">Ferme de Bassenges · Seasonal harvests · Traceable origin</span>
+<h2>Harvest traceability</h2>
+<p>Each jar carries its harvest year and harvest number. Together they identify a particular season at Bassenges and link every jar to its place of origin.</p>
+<p>Rather than blending different years or harvests together, we preserve each one separately. Every harvest reflects the unique combination of weather, flowering and bee activity that shaped it.</p>
+<div class="harvest-entry">
+<h3>Summer 2026 · 02</h3>
+<p>Summer 2026 was exceptionally warm and dry. Prolonged periods of heat alternated with thunderstorms that briefly renewed nectar flows around Bassenges before the return of dry conditions.</p>
+<p>Around the farm, the bees followed the progression from linden into brambles, white clover, flowering vegetable crops, gardens and the rich diversity of midsummer flowers.</p>
+<p>This harvest reflects the resilience and abundance of the Bassenges terroir during an extraordinary summer.</p>
+</div>
+<div class="harvest-entry">
+<h3>Spring 2026 · 01</h3>
+<p>Spring arrived unusually early. Warm, dry weather accelerated the flowering of willow, cherry, plum, apple and pear trees, followed by berry blossoms, dandelions and spring meadows.</p>
+<p>Collected before the summer linden bloom, this harvest preserves the bright floral character of an exceptionally early spring.</p>
+</div>
+<div class="harvest-entry">
+<h3>Summer 2025 · 03</h3>
+<p>By midsummer, the landscape had reached its full diversity. Following the linden bloom, bees foraged among brambles, white clover, flowering vegetable crops, gardens and the rich variety of wildflowers surrounding Ferme de Bassenges.</p>
+<p>This harvest reflects the warmth and richness of a remarkable Swiss summer.</p>
+</div>
+<div class="harvest-entry">
+<h3>Spring 2025 · 02</h3>
+<p>An exceptionally warm June brought an early transition into summer. Flowering meadows, white clover and berry plants were joined by the first linden blossoms, creating a richer and more varied nectar flow than earlier in the season.</p>
+<p>This harvest captures the changing landscape as spring gives way to summer.</p>
+</div>
+<div class="harvest-entry">
+<h3>Spring 2025 · 01</h3>
+<p>The first harvest of the season reflects the awakening of the Bassenges landscape. Bees foraged among flowering willow, cherry, plum, apple and pear trees, berry blossoms, dandelions and the rich diversity of spring meadows.</p>
+<p>Collected before the linden bloom, this honey captures the freshness and delicacy of late spring.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<div class="footer-brand">Or/g/n</div>
+<div class="footer-note">Or/g/n · By the Instillations Association</div>
+</div>
+</footer>
+<script>
     (() => {
       const zones = [...document.querySelectorAll('.editable-zone')];
       const toggle = document.getElementById('toggleEdit');
@@ -623,6 +624,5 @@
       setEditing(false);
     })();
   </script>
-
 </body>
 </html>
